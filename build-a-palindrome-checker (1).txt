@@ -1,0 +1,185 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Palindrome Checker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css"/>
+
+
+</head>
+<body>
+  <h1>Palindrome Checker</h1>
+  <input id="text-input">
+<button id="check-btn" ">Check</button>
+<div id="result"></div>
+<script src="script.js"></script>
+  </body>
+  </html>
+  
+
+
+** end of undefined **
+
+** start of undefined **
+
+let textInput = document.getElementById("text-input");
+let checkBtn = document.getElementById("check-btn");
+let result = document.getElementById("result");
+
+checkBtn.addEventListener("click", palindrome);
+
+function palindrome() {
+  if (textInput.value == "") {
+    alert("Please input a value");
+  }
+
+  const processedStr = textInput.value.replace(/[\W_]/g, "").toLowerCase();
+  let isPalindrome = true;
+
+  for (let i = 0; i < Math.floor(processedStr.length / 2); i++){
+    if (processedStr[i] !== processedStr[processedStr.length - 1 - i]){
+      isPalindrome = false;
+      break;
+    }
+  }
+  if (isPalindrome){
+    result.innerHTML = textInput.value + " is a palindrome";
+
+  }
+  else {
+    result.innerHTML = textInput.value + " is not a palindrome";
+  }
+}
+
+** end of undefined **
+
+** start of undefined **
+
+/* Global settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+/* Center container for the palindrome checker */
+#container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Title styling */
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #0073e6;
+}
+
+/* Input styling */
+#text-input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+#text-input:focus {
+  border-color: #0073e6;
+  outline: none;
+}
+
+/* Button styling */
+#check-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0073e6;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#check-btn:hover {
+  background-color: #005bb5;
+}
+
+#check-btn:active {
+  background-color: #003f7f;
+}
+
+/* Result display styling */
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+/* Success and error feedback */
+#result.success {
+  color: #28a745;
+  background-color: #dff0d8;
+}
+
+#result.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+}
+
+/* Adding a small animation to show/hide results smoothly */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  #container {
+    padding: 15px 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #text-input,
+  #check-btn {
+    width: 100%;
+  }
+}
+
+** end of undefined **
+
